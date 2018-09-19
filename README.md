@@ -1,2 +1,4 @@
 # church-donation-data-analysis
-fa18 research project
+FA18 research project with prof Tim Weniger
+
+
