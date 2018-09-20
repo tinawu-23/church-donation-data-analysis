@@ -4,7 +4,7 @@ import pandas as pd
 from googlesearch import search 
 
 # read initial parish csv file with missing urls
-df = pd.read_csv('PA-Parishes.csv', nrows=20)
+df = pd.read_csv('PA-Parishes.csv')
 df_church = df['Church']
 df_city = df['City']
 
