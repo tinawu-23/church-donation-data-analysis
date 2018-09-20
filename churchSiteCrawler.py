@@ -18,7 +18,7 @@ for i in range(df.shape[0]):
 	querystr = df_church[i] + " " + df_city[i]
 	for site in search(querystr, tld="com", num=3, stop=1, pause=2):
 		if 'facebook' not in site and 'wikipedia' not in site:
-			df_urlComplete.loc['URL',i]=site
+			df_urlComplete.at[i,'URL']=site
 			break
 
 # export df as new csv file
