@@ -13,7 +13,7 @@ df_filterparish['Bulletin'] = 'N'
 pdf_filter = open('pdf_filter.txt','r').read().splitlines()
 bulletin_filter = open('bulletin_filter.txt','r').read().splitlines()
 
-# fill in urls using googlesearch
+# fill in filter data
 for i in range(df.shape[0]):
 	try:
 		site = str(df['URL'][i]).split('/')[2].replace('www.','')
