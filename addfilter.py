@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+import pandas as pd
+
+# read initial parish csv file with missing urls
+df = pd.read_csv('PA-Parishes-complete.csv')
+
+# create new df
+df_filterparish = df
+df_filterparish['PDF'] = 'N'
+df_filterparish['Bulletin'] = 'N'
+
+# open two filter files
+pdf_filter = open('pdf_filter.txt','r').read().splitlines()
+bulletin_filter = open('bulletin_filter.txt','r').read().splitlines()
+
+# fill in urls using googlesearch
+for i in range(df.shape[0]):
+	try:
+		site = str(df['URL'][i]).split('/')[2].replace('www.','')
+	except:
+		continue
+
+	if site in pdf_filter:
+		df_filterparish.at[i,'PDF']='Y'		
+	if site in bulletin_filter:
+		df_filterparish.at[i,'Bulletin']='Y'
+
+# export df as new csv file
+df_filterparish.to_csv('PA-Parishes-filter.csv', encoding='utf-8', index=False)
+
